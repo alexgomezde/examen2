@@ -1,0 +1,96 @@
+<section layout="row" flex id="administrador">
+
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+
+    <md-toolbar class="md-theme-indigo">
+
+
+       <i class="fa fa-user-o" aria-hidden="true"></i>
+
+    </md-toolbar>
+
+    <md-content layout-margin>
+      <ul>
+        <li><button class="sesion" layout-align="center end" ui-sref="administrator.player"> Add players </button></li>
+        <li><button class="sesion" layout-align="center end" ui-sref="administrator.curso"> Buy properties </button></li>
+        <li><button class="sesion" layout-align="center end" ui-sref="administrator.profesor"> See properties </button></li>
+      </ul>
+
+      <button ng-click="toggleLeft()" class="btn-primary">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+    </md-content>
+
+  </md-sidenav>
+
+  <md-content flex layout-padding>
+
+    <div layout="column" layout-align="top">
+
+      <div>
+        <md-nav-bar aria-label="nav-bar" class="md-whiteframe-4dp left" flex>
+          <span flex>
+            <button ng-click="toggleLeft()" class="btn-primary">
+              <i class="fa fa-bars fa-4x" aria-hidden="true"></i>
+            </button>
+          </span>
+
+
+        </md-nav-bar>
+
+      </div>
+    </div>
+
+  </md-content>
+
+
+
+</section>
+
+<div ui-view id="bg-administrador">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h1>Welcome!</h1>
+  </div>
+</div>
+
+
+
+<!-- /#sidebar-wrapper -->
+    <!-- <md-sidenav layout-align="start center" md-is-locked-open="true"  flex="25">
+      <img src="componentes/imagenes/logoC.png" alt="logo Soft House">
+        <button class="sesion" layout-align="center end" ui-sref="administrador.carrera"> Carreras </button>
+        <button class="sesion" layout-align="center end" ui-sref="administrador.profesor"> Profesores </button>
+        <button class="sesion" layout-align="center end"> Reportes</button>
+        <button class="sesion" layout-align="center end"> Editar</button>
+        <button class="sesion" layout-align="center end" ui-sref="proyectos">Proyectos</button>
+        <button class="sesion" layout-align="center end" ui-sref="estadoEstudiante">Estudiantes</button>
+
+    </md-sidenav> -->
+
+    <!-- <md-content flex>
+      <md-nav-bar aria-label="nav-bar" class="md-whiteframe-4dp left" flex>
+        <span flex></span>
+        <div>
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Notificaciones</button>
+        </div>
+        <div>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Calendario</button>
+        </div>
+        <div>
+          <i class="fa fa-cog" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Opciones</button>
+        </div>
+        <div>
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <button  class="session" layout-align="center end"> Hola Usuario</button>
+        </div>
+        <div>
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+        <button  class="session" ui-sref="inicio" layout-align="center end"> Salir</button>
+        </div>
+      </md-nav-bar>
+
+    <div ui-view><h2>Bienvenido administrador</h2></div>
+    </md-content> -->

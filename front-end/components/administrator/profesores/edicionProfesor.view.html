@@ -1,0 +1,43 @@
+<div id="profesor">
+  <div class="row">
+    <div class="col-md-6">
+
+      <h1>Agregar Profesor</h1>
+
+      <div class="form-group">
+          <label for="txtNombreProfesor" class="control-label">Nombre:</label>
+          <input type="text" class="form-control" id="txtNombreProfesor" name="nombreProfesor" ng-model="edicionProfesorCtrl.nombreProfesor">
+      </div>
+
+      <div class="form-group">
+          <label for="txtCorreoProfesor" class="control-label">Correo:</label>
+          <input type="text" class="form-control" id="txtNombreProfesor" name="correoProfesor" ng-model="edicionProfesorCtrl.correoProfesor">
+      </div>
+
+      <div class="form-group">
+          <label for="txtContrasennaProfesor" class="control-label">Contraseña:</label>
+          <input type="password" class="form-control" id="txtContrasennaProfesor" name="contrasennaProfesor" ng-model="edicionProfesorCtrl.contrasennaProfesor">
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="edicionProfesorCtrl.save()">Agregar</button>
+
+
+    </div>
+  </div>
+
+
+  <table>
+  <thead>
+    <th>Profesor</th>
+    <th>Correo</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="profesor in edicionProfesorCtrl.profesores">
+      <td>{{profesor.nombreProfesor}}</td>
+      <td>{{profesor.correoProfesor}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>

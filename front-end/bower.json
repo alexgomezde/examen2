@@ -1,0 +1,11 @@
+{
+  "name": "ejemplo",
+  "description": "este es el ejemplo",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "ng-file-upload": "^12.2.13",
+    "moment": "^2.18.1"
+  }
+}

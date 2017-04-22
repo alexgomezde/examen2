@@ -1,0 +1,176 @@
+<div id="carreras">
+  <div class="row no-margin">
+
+    <div class="col-md-12">
+      <h2 class="text-center">Players</h2>
+    </div>
+
+
+
+    <form name="playerForm" novalidate="">
+
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3" ng-class="
+          {
+            'errorBorder': playerForm.name.$invalid && (!playerForm.name.$pristine || playerForm.$submitted)
+          }
+          ">
+
+            <input type="text" class="form-control" name="name" placeholder="Enter name" ng-model="playerCtrl.name" ng-pattern="/^[a-zA-Z ]*$/" required>
+            <div ng-messages="playerForm.name.$error" class="error" ng-show="playerForm.name.$invalid && (!playerForm.name.$pristine || playerForm.$submitted)">
+              <div ng-message="required">Field required</div>
+              <div ng-message="pattern">Only letters allowed</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3" ng-class="
+        {
+          'errorBorder': playerForm.id.$invalid && (!playerForm.id.$pristine || playerForm.$submitted)
+        }
+        ">
+          <input type="text" class="form-control" name="id" placeholder="Enter ID" ng-model="playerCtrl.id" ng-pattern="/^[0-9]*$/" required>
+          <div ng-messages="playerForm.id.$error" class="error" ng-show="playerForm.id.$invalid && (!playerForm.id.$pristine || playerForm.$submitted)">
+            <div ng-message="required">Field required</div>
+            <div ng-message="pattern">Only numbers allowed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3" ng-class="
+        {
+          'errorBorder': playerForm.alias.$invalid && (!playerForm.alias.$pristine || playerForm.$submitted)
+        }
+        ">
+          <input type="text" class="form-control" name="alias" placeholder="Enter alias" ng-model="playerCtrl.alias" ng-pattern="/^[a-zA-Z ]*$/" required>
+          <div ng-messages="playerForm.alias.$error" class="error" ng-show="playerForm.alias.$invalid && (!playerForm.alias.$pristine || playerForm.$submitted)">
+            <div ng-message="required">Field required</div>
+            <div ng-message="pattern">Only letters allowed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3" ng-class="
+        {
+          'errorBorder': playerForm.photo.$invalid && (!playerForm.photo.$pristine || playerForm.$submitted)
+        }
+        ">
+          <input type="file"  name="photo" placeholder="Enter alias" ng-model="playerCtrl.photo" id="photo">
+          <div ng-messages="playerForm.photo.$error" class="error" ng-show="playerForm.$submitted">
+            <div ng-message="required">You need to select an image</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <input type="text" class="form-control" name="money" placeholder="Money 1000" ng-model="playerCtrl.money" value="1000" disabled="">
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <button type="submit" class="btn btn-primary pull-right" name="button" ng-click="playerCtrl.preSave(playerForm.$valid)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      </form>
+
+
+
+
+      <div class="col-md-6 col-md-offset-3">
+        <table class="table text-center">
+          <tr>
+            <th class="text-center">NAME</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">ALIAS</th>
+            <th class="text-center">MONEY</th>
+            <th class="text-center">PHOTO</th>
+          </tr>
+          <tbody>
+            <tr ng-repeat="player in playerCtrl.players">
+              <td>{{player.name}}</td>
+              <td>{{player.id}}</td>
+              <td>{{player.alias}}</td>
+              <td>{{player.money}}</td>
+              <td><img src="{{player.photo}}" alt="" width="50px" height="50px"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+    <!-- <div class="col-md-6 text-center">
+      <h1>Eliminar Carrera</h1>
+      <select ng-model="carreraCtrl.carreraSeleccionada">
+        <option value="">--Seleccionar Carrera--</option>
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.eliminar()">Eliminar</button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 role text-center">
+
+      <h1>Asignar Curso</h1>
+
+      <select ng-model="carreraCtrl.carreraSeleccionadaCurso">
+        <option value="">--Seleccionar Carrera--</option>
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+      <br>
+      <input type="text" name="" value="" placeholder="Ingrese nombre del curso" ng-model="carreraCtrl.nombreCurso">
+      <br>
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.asignar()">Asignar</button>
+
+    </div>
+
+    <div class="col-md-6 role text-center">
+      <h1>Eliminar Curso</h1>
+
+      <select ng-model="carreraCtrl.carreraSeleccionadaEliminarCurso">
+        <option value="{{carrera.nombre}}" ng-repeat="carrera in carreraCtrl.carreras">{{carrera.nombre}}</option>
+      </select>
+
+      <div ng-repeat="item in carreraCtrl.carreras | filter:{nombre:carreraCtrl.carreraSeleccionada}:true  track by $index">
+        <select ng-model="carreraCtrl.carreraEliminarCurso" >
+          <option ng-repeat="innerItem in item.cursos" ng-value="{{obj.name}}">{{innerItem.name}}</option>
+        </select>
+      </div>
+
+
+      <button type="button" name="button" class="btn btn-primary" ng-click="carreraCtrl.eliminarCurso()">Eliminar</button>
+    </div> -->
+
+
+  <!-- </div>
+
+  <table>
+  <thead>
+    <th>Carrera</th>
+    <th>Cursos</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="carrera in carreraCtrl.carreras">
+      <td>{{carrera.nombre}}</td>
+      <td>
+        <p ng-repeat="curso in carrera.cursos">{{curso.name}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
