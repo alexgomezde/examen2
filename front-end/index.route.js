@@ -17,10 +17,10 @@
       controller: 'playerController',
       controllerAs: 'playerCtrl'
     })
-    .state('administrator.curso',{
-      templateUrl: 'components/administrator/cursos/curso.view.html',
-      controller: 'cursoController',
-      controllerAs: 'cursoCtrl'
+    .state('administrator.property',{
+      templateUrl: 'components/administrator/properties/property.view.html',
+      controller: 'propertyController',
+      controllerAs: 'propertyCtrl'
     })
 
         $urlRouterProvider.otherwise('/administrator');

@@ -1,27 +1,22 @@
 (function(){
   angular
     .module('gameApp')
-    .controller('cursoController', cursoController);
-    function cursoController(administradorService, $scope, $mdDialog){ //se inyecta el service userService en el controlador para que se tenga acceso
+    .controller('propertyController', propertyController);
+    function propertyController(administradorService, $scope, $mdDialog){ //se inyecta el service userService en el controlador para que se tenga acceso
       //controlador
-      var cursoCtrl = this; //binding del controlador con el html, solo en el controlador
+      var propertyCtrl = this; //binding del controlador con el html, solo en el controlador
 
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
-        administradorService.getCarreras()
+        administradorService.getPlayers()
           .success(function(data){
-            cursoCtrl.carreras = data;
+            propertyCtrl.players = data;
 
           });
 
-        administradorService.getCursos()
-          .success(function(data){
-            cursoCtrl.cursos = data;
-
-          });
 
       }init();
 
-      cursoCtrl.save = function (valido){
+      propertyCtrl.save = function (valido){
 
         if (valido) {
             var nuevoCurso = {
@@ -67,7 +62,7 @@
 
       }
 
-      cursoCtrl.eliminarCurso = function (id, ev){
+      propertyCtrl.eliminarCurso = function (id, ev){
 
 
             confirm = $mdDialog.confirm()

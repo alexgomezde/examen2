@@ -2,64 +2,39 @@
   <div class="row no-margin">
 
     <div class="col-md-12">
-      <h2 class="text-center">Cursos</h2>
+      <h2 class="text-center">Buy Properties</h2>
     </div>
 
 
-    <form name="formularioCurso" novalidate="">
 
-      <div class="row text-center">
 
-        <div class="col-md-3 col-md-offset-3" ng-class="
-        {
-          'errorBorder': formularioCurso.codigo.$invalid && (!formularioCurso.codigo.$pristine || formularioCurso.$submitted)
-        }
-        ">
+    <form name="propertyForm" novalidate="">
 
-          <input type="text" class="form-control" name="codigo" placeholder="Código" ng-model="cursoCtrl.codigo" ng-pattern="/^[a-zA-ZáÁéÉíÍóÓúÚÑñ0-9- ]*$/" required>
-          <div ng-messages="formularioCurso.codigo.$error" class="error" ng-show="formularioCurso.codigo.$invalid && (!formularioCurso.codigo.$pristine || formularioCurso.$submitted)">
-            <div ng-message="required" >Campo requerido</div>
-            <div ng-message="pattern">Este campo sólo permite números</div>
-          </div>
-        </div>
+      <div class="col-md-3 col-md-offset-3">
+        <table class="table text-center">
+          <tr>
+            <th>Player</th>
+            <th>Photo</th>
+            <th>Select</th>
+          </tr>
+          <tbody>
+            <tr ng-repeat="player in propertyCtrl.players">
+              <td>{{player.name}}</td>
+              <td>{{player.photo}}</td>
+              <td><input type="check" name="" value="{{player._id}}"></td>
+            </tr>
+          </tbody>
 
-        <div class="col-md-3" ng-class="
-        {
-          'errorBorder': formularioCurso.nombre.$invalid && (!formularioCurso.nombre.$pristine || formularioCurso.$submitted)
-        }
-        ">
-          <input type="text" class="form-control" name="nombre" placeholder="Ingresar nombre del curso" ng-model="cursoCtrl.nombre" ng-pattern="/^[a-zA-ZáÁéÉíÍóÓúÚÑñ ]*$/" required>
-          <div ng-messages="formularioCurso.nombre.$error" class="error" ng-show="formularioCurso.nombre.$invalid && (!formularioCurso.nombre.$pristine || formularioCurso.$submitted)">
-            <div ng-message="required">Campo requerido</div>
-            <div ng-message="pattern">Este campo sólo permite letras</div>
-          </div>
-        </div>
+        </table>
 
       </div>
 
-      <div class="row text-center">
-        <div class="col-md-3 col-md-offset-3" ng-class="
-        {
-          'errorBorder': formularioCurso.carrera.$invalid && (!formularioCurso.carrera.$pristine || formularioCurso.$submitted)
-        }
-        ">
 
-          <select class="form-control" name="carrera" ng-model="cursoCtrl.carrera" required>
-            <option value="">--Seleccione carrera--</option>
-            <option ng-repeat="carrera in cursoCtrl.carreras" value="{{carrera.codigoCarrera}}">{{carrera.nombre}} ({{carrera.nivel}})</option>
-          </select>
 
-          <div ng-messages="formularioCurso.carrera.$error" class="error" ng-show="formularioCurso.carrera.$invalid && (!formularioCurso.carrera.$pristine || formularioCurso.$submitted)">
-            <div ng-message="required">Campo requerido</div>
-          </div>
-        </div>
 
         <div class="col-md-3">
           <button type="submit" class="btn btn-primary pull-right" name="button" ng-click="cursoCtrl.save(formularioCurso.$valid)"><i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
-
-      </div>
-
 
       </form>
 
