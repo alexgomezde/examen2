@@ -11,7 +11,8 @@ var PlayerSchema = new mongoose.Schema({
   },
   alias: String,
   money: String,
-  photo: String
+  photo: String,
+  file: String
 
 });
 

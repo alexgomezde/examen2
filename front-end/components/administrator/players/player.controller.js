@@ -8,6 +8,7 @@
 
       playerCtrl.cloudObj = ImageService.getConfiguration();
 
+
       function init(){ // función que se llama así misma para indicar que sea lo primero que se ejecute
 
         administradorService.getPlayers()
@@ -52,7 +53,8 @@
               id : playerCtrl.id,
               alias : playerCtrl.alias,
               money : '1000',
-              photo : pPhoto
+              photo : pPhoto,
+              file : playerCtrl.file
             }
 
             administradorService.setPlayers(newPlayer)
@@ -73,9 +75,31 @@
             playerCtrl.alias = '';
             init();
 
-        })
+          })
 
         }
+
+        playerCtrl.showPicker = function (){
+
+          var client = filestack.init('AYBYkARrexdVvuKQJ5ngWz');
+
+          client.pick({
+            }).then(function(result) {
+              console.log(JSON.stringify(result.filesUploaded[0].url));
+              playerCtrl.file = JSON.stringify(result.filesUploaded[0].url);
+
+              playerCtrl.file=JSON.parse("["+playerCtrl.file+"]");
+            });
+
+
+        }
+
+
+
+
+
+
+
       playerCtrl.eliminarCarrera = function (id, ev){
 
 

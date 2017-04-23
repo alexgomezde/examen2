@@ -58,9 +58,23 @@
           'errorBorder': playerForm.photo.$invalid && (!playerForm.photo.$pristine || playerForm.$submitted)
         }
         ">
-          <input type="file"  name="photo" placeholder="Enter alias" ng-model="playerCtrl.photo" id="photo">
+          <input type="file"  name="photo" ng-model="playerCtrl.photo" id="photo">
           <div ng-messages="playerForm.photo.$error" class="error" ng-show="playerForm.$submitted">
             <div ng-message="required">You need to select an image</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3" ng-class="
+        {
+          'errorBorder': playerForm.file.$invalid && (!playerForm.file.$pristine || playerForm.$submitted)
+        }
+        ">
+          <!-- <input type="file"  data-fp-apikey="AYBYkARrexdVvuKQJ5ngWz" name="file" ng-model="playerCtrl.file" id="file" onchange="console.log(event.fpfile)"> -->
+          <input type="button" value="Upload" ng-click="playerCtrl.showPicker()" ng-model="playerCtrl.file"/>
+          <div ng-messages="playerForm.file.$error" class="error" ng-show="playerForm.$submitted">
+            <div ng-message="required">You need to upload a document</div>
           </div>
         </div>
       </div>
@@ -87,19 +101,21 @@
       <div class="col-md-6 col-md-offset-3">
         <table class="table text-center">
           <tr>
-            <th class="text-center">NAME</th>
             <th class="text-center">ID</th>
+            <th class="text-center">NAME</th>
             <th class="text-center">ALIAS</th>
             <th class="text-center">MONEY</th>
             <th class="text-center">PHOTO</th>
+            <th class="text-center">BIO</th>
           </tr>
           <tbody>
             <tr ng-repeat="player in playerCtrl.players">
-              <td>{{player.name}}</td>
               <td>{{player.id}}</td>
+              <td>{{player.name}}</td>
               <td>{{player.alias}}</td>
               <td>{{player.money}}</td>
               <td><img src="{{player.photo}}" alt="" width="50px" height="50px"></td>
+              <td><a href="{{player.file}}" target="_blank">Click here</a></td>
             </tr>
           </tbody>
         </table>
