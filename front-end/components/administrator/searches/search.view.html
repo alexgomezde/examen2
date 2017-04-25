@@ -1,0 +1,52 @@
+<div id="carreras">
+  <div class="row no-margin">
+
+    <div class="col-md-12">
+      <h2 class="text-center">Search Properties</h2>
+    </div>
+
+
+
+
+    <form name="searchForm" novalidate="">
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+          <h3 class="text-center">Select player</h3>
+
+          <select class="form-control" name="selectedPlayer" required="" ng-model="searchCtrl.player">
+            <option value="">--Select player--</option>
+            <option ng-repeat="player in searchCtrl.players" value="{{player.id}}">{{player.name}}</option>
+          </select>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <table class="table text-center">
+            <tr>
+              <th class="text-center">PROPERTY</th>
+            </tr>
+            <tbody>
+              <tr ng-repeat="property in searchCtrl.properties | filter:searchCtrl.player">
+                <td>{{property.name}}</td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </div>
+
+
+
+
+
+
+      </form>
+  </div>
+
+</div>

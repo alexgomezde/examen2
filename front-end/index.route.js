@@ -22,6 +22,11 @@
       controller: 'propertyController',
       controllerAs: 'propertyCtrl'
     })
+    .state('administrator.search',{
+      templateUrl: 'components/administrator/searches/search.view.html',
+      controller: 'searchController',
+      controllerAs: 'searchCtrl'
+    })
 
         $urlRouterProvider.otherwise('/administrator');
 
