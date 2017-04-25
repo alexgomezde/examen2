@@ -1,6 +1,6 @@
 var express = require('express');
 var	router = express.Router();
-var playerController = require('./player.controller.js');
+var propertyController = require('./property.controller.js');
 
 //Para las rutas con id
 router.param('id',function(req, res, next, id){
@@ -11,22 +11,22 @@ router.param('id',function(req, res, next, id){
 
 //Declaracion de las rutas
 
-router.route('/players')
-  .post(function(req, res){
-    playerController.save(req,res);
- 	});
+// router.route('/properties')
+//   .post(function(req, res){
+//     propertyController.save(req,res);
+//  	});
 
-router.route('/players')
+router.route('/properties')
   .get(function(req, res){
-    playerController.findAll(req,res);
+    propertyController.findAll(req,res);
   });
 // router.route('/carreras/:id')
 //   .delete(function(req, res){
 //     carreraController.remove(req,res);
 //  	});
-router.route('/players')
+router.route('/properties')
   .put(function(req, res){
-    playerController.update(req,res);
+    propertyController.update(req,res);
  	});
 
 

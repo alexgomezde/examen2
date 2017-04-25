@@ -1,5 +1,6 @@
 var JwtStrategy = require('passport-jwt').Strategy;
 var Player = require('../models/player.model');
+var Property = require('../models/property.model');
 var config = require('../config/database');
 
 module.exports = function(passport){
@@ -17,4 +18,17 @@ module.exports = function(passport){
         done(null,false);
       }
     });
+
+    Property.find({id:jwt_payload.sub},function(err,property){
+      if(err){
+        return done(err,false);
+      }
+      if(property){
+        done(null,property);
+      }else{
+        done(null,false);
+      }
+    });
+
+  }));
 };

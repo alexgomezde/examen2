@@ -240,11 +240,9 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   background-image: url("../components/imagenes/cover.jpeg");
   background-position: center center;
   background-size: cover;
-  min-height: 100%;
+  min-height: 1024px;
   min-width: 1024px;
   width: 100%;
-
-  position: fixed;
 
 }
 
@@ -730,6 +728,11 @@ footer .copy-right i{
   color: #fbb803;
   font-weight: bolder;
   padding: 50px 0;
+}
+
+#carreras h3{
+  color: #fbb803;
+
 }
 
 #carreras .btn-primary i{

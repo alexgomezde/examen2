@@ -94,12 +94,6 @@
 
         }
 
-
-
-
-
-
-
       playerCtrl.eliminarCarrera = function (id, ev){
 
 

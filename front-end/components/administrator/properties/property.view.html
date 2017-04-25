@@ -11,17 +11,20 @@
     <form name="propertyForm" novalidate="">
 
       <div class="col-md-3 col-md-offset-3">
+
+        <h3 class="text-center">Select player</h3>
+
         <table class="table text-center">
           <tr>
-            <th>Player</th>
-            <th>Photo</th>
-            <th>Select</th>
+            <th class="text-center">PLAYER</th>
+            <th class="text-center">MONEY</th>
+            <th class="text-center">SELECT</th>
           </tr>
           <tbody>
             <tr ng-repeat="player in propertyCtrl.players">
               <td>{{player.name}}</td>
-              <td>{{player.photo}}</td>
-              <td><input type="check" name="" value="{{player._id}}"></td>
+              <td>{{player.money}}</td>
+              <td><input type="radio" name="selectedPlayer" value="{{player._id}}" required="" ng-model="propertyCtrl.player"></td>
             </tr>
           </tbody>
 
@@ -29,36 +32,53 @@
 
       </div>
 
+      <div class="col-md-3 form-group">
 
+        <h3 class="text-center">Select property</h3>
 
+        <select class="form-control" name="selectedProperty" required="" ng-model="propertyCtrl.property">
+          <option value="">--Select property--</option>
+          <option ng-repeat="property in propertyCtrl.properties" value="{{property._id}}">{{property.name}} (Price: {{property.price}})</option>
+        </select>
 
-        <div class="col-md-3">
-          <button type="submit" class="btn btn-primary pull-right" name="button" ng-click="cursoCtrl.save(formularioCurso.$valid)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <div class="col-md-6 col-md-offset-3">
+          <button type="submit" class="btn btn-primary pull-right" name="button" ng-click="propertyCtrl.buy(propertyForm.$valid)"><i class="fa fa-shopping-cart fa-5x" aria-hidden="true"></i></button>
         </div>
+
+      </div>
+
+      <div class="row">
+
+      </div>
+
+
+
+
+
 
       </form>
 
 
 
 
-      <div class="col-md-6 col-md-offset-3">
+      <!-- <div class="col-md-6 col-md-offset-3">
         <table class="table text-center">
           <tr>
             <th class="text-center">Código</th>
             <th class="text-center">Nombre del curso</th>
-            <!-- <th class="text-center">Carrera</th> -->
+            <th class="text-center">Carrera</th>
             <th class="text-center">Eliminar</th>
           </tr>
           <tbody >
             <tr ng-repeat="curso in cursoCtrl.cursos">
               <td>{{curso.codigoCurso}}</td>
               <td>{{curso.nombre}}</td>
-              <!-- <td>{{carrera.nombre}}</td> -->
+              <td>{{carrera.nombre}}</td>
               <td><button type="button" ng-click="cursoCtrl.eliminarCurso(curso._id, $event)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
 
 
   </div>
