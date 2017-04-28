@@ -22,9 +22,10 @@
           </tr>
           <tbody>
             <tr ng-repeat="player in propertyCtrl.players">
+              <td><input type="radio" name="selectedPlayer" value="{{player._id}}" required="" ng-model="propertyCtrl.player"></td>
               <td>{{player.name}}</td>
               <td>{{player.money}}</td>
-              <td><input type="radio" name="selectedPlayer" value="{{player._id}}" required="" ng-model="propertyCtrl.player"></td>
+
             </tr>
           </tbody>
 

@@ -31,7 +31,7 @@
               <th class="text-center">PROPERTY</th>
             </tr>
             <tbody>
-              <tr ng-repeat="property in searchCtrl.properties | filter:searchCtrl.player">
+              <tr ng-repeat="property in searchCtrl.properties | filter:searchCtrl.player:true">
                 <td>{{property.name}}</td>
               </tr>
             </tbody>
